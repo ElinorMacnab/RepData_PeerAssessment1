@@ -126,7 +126,7 @@ median(filledTotals$total.steps) # slightly higher than before and very close to
 
 ```r
 filledData$weekend <- weekdays(filledData$date) %in% c("Saturday", "Sunday") # logical indicating whether or not the day is a weekend
-filledData$status<-factor(filledData$weekend,levels=c(TRUE,FALSE),labels=c("Weekend","Weekday")) # factor variable for splitting the data into weekends and weekdays
+filledData$status<-factor(filledData$weekend,levels=c(TRUE,FALSE),labels=c("Weekend","Weekday")) # factor variable to split the data into weekends and weekdays
 filledIntervalMeans <- summarise(group_by(filledData, interval, status), mean(steps)) # as above, but also grouping according to type of day
 names(filledIntervalMeans) <- c("interval", "status", "mean")
 class(filledIntervalMeans)<-class(intervalMeans) # otherwise the interval column cannot be altered

@@ -302,7 +302,7 @@ hist(filledTotals$total.steps,
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
 
 <pre><code class="r">filledData$weekend &lt;- weekdays(filledData$date) %in% c(&quot;Saturday&quot;, &quot;Sunday&quot;) # logical indicating whether or not the day is a weekend
-filledData$status&lt;-factor(filledData$weekend,levels=c(TRUE,FALSE),labels=c(&quot;Weekend&quot;,&quot;Weekday&quot;)) # factor variable for splitting the data into weekends and weekdays
+filledData$status&lt;-factor(filledData$weekend,levels=c(TRUE,FALSE),labels=c(&quot;Weekend&quot;,&quot;Weekday&quot;)) # factor variable to split the data into weekends and weekdays
 filledIntervalMeans &lt;- summarise(group_by(filledData, interval, status), mean(steps)) # as above, but also grouping according to type of day
 names(filledIntervalMeans) &lt;- c(&quot;interval&quot;, &quot;status&quot;, &quot;mean&quot;)
 class(filledIntervalMeans)&lt;-class(intervalMeans) # otherwise the interval column cannot be altered
